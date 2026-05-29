@@ -1,8 +1,8 @@
 // Centralized Operational Gateway API Base URL
 // Switches dynamically depending on active deployment domain
-export const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-  ? 'http://localhost:5000/api'
-  : `${window.location.origin.replace('3000', '5000')}/api`; // Or fallback dynamically to port 5000 on host redirects
+export const API_BASE_URL =
+  import.meta.env.VITE_API_URL ||
+  'https://military-gao4.onrender.com/api'; // Or fallback dynamically to port 5000 on host redirects
 
 export const isGoogleDriveUrl = (url) => {
   return typeof url === 'string' && url.includes('drive.google.com');
