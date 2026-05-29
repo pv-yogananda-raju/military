@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-tactical-bg text-tactical-text font-sans antialiased overflow-x-hidden;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(35, 134, 54, 0.05) 0px, transparent 50%),
+      radial-gradient(at 50% 0%, rgba(31, 111, 235, 0.03) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(218, 54, 51, 0.03) 0px, transparent 50%);
+    background-attachment: fixed;
+  }
+
+  /* Custom high-contrast tactical scrollbars */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0c0f12;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #30363d;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #238636;
+  }
+}
+
+/* Custom micro-animations and glowing indicators */
+@keyframes pulse-tactical {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.95);
+  }
+}
+
+.animate-pulse-tactical {
+  animation: pulse-tactical 3s infinite ease-in-out;
+}
+
+@keyframes scanning-line {
+  0% {
+    top: 0%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+.tactical-scan-overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.tactical-scan-overlay::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(74, 222, 128, 0.15);
+  animation: scanning-line 6s linear infinite;
+  pointer-events: none;
+}
+
+.tactical-grid-bg {
+  background-size: 24px 24px;
+  background-image: 
+    linear-gradient(to right, rgba(48, 54, 61, 0.2) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(48, 54, 61, 0.2) 1px, transparent 1px);
+}
+
+.glow-border-hover:hover {
+  border-color: rgba(74, 222, 128, 0.4);
+  box-shadow: 0 0 12px rgba(74, 222, 128, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
