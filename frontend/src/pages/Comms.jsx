@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { resolveMediaUrl, getGoogleDriveEmbedUrl, detectGoogleDriveUrl } from '../config';
+import { resolveMediaUrl, isGoogleDriveUrl, getGoogleDriveEmbedUrl, detectGoogleDriveUrl } from '../config';
 import { 
   MessageSquare, Send, ShieldAlert, Users, Radio, Lock, AlertTriangle, 
   Check, RefreshCw, Search, Globe, UserPlus, CheckCircle, Shield, 
